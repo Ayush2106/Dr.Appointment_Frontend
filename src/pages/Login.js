@@ -1,13 +1,14 @@
 import React from "react";
 import "../styles/LoginReg.css";
 import { Form, Input, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useDispatch} from "react-redux"
 import { showLoading,hideLoading } from "../redux/features/alertSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   //form handler
   const onfinishHandler = async (values) => {
     try {
@@ -22,6 +23,8 @@ const Login = () => {
         localStorage.setItem("token", res.data.token);
         message.success("Login Successfully");
         window.location.reload(); // Reload the page only after successful login
+        navigate('/')
+
       } else {
         message.error(res.data.message); 
       }
