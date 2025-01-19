@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+/* loader */
+.spinner{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background-color: rgb(187, 183, 183);
+}
+.form-btn{
+  width:250px !important;
+  margin-top: 30px !important;
+}
