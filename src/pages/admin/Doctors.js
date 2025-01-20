@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { message, Table } from "antd";
 import Layout from '../../components/Layout'
+import { useNavigate } from "react-router-dom";
 
 const Doctors = () => {
+  const navigate = useNavigate();
   const [doctors, setDoctors] = useState([]);
 //getUsers
 const getDoctors = async () => {
@@ -35,6 +37,7 @@ const getDoctors = async () => {
       );
       if (res.data.success) {
         message.success(res.data.message);
+        navigate('/')
         window.location.reload();
       }
     } catch (error) {
