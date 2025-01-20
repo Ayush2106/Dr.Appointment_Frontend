@@ -1,6 +1,7 @@
 # Dr. Appointment
 
 This is a React.js project for managing doctor appointments.
+This is deployed link: https://dr-appointmentt.netlify.app   (Since this is hosted on a free server, it may take some time for the server to respond).
 
 ## Prerequisites
 
