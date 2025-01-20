@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Dr. Appointment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React.js project for managing doctor appointments.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+- Ensure you have **Node.js** and **npm** installed on your system.
+- A running backend server accessible at `http://localhost:8080`.
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Follow these steps to set up and run the project:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Clone the Repository**  
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   
+2. **Install Dependencies**
+    Run the following command to install the necessary dependencies:
+    npm install
 
-### `npm test`
+    If you encounter peer dependency issues, use:
+    npm install --legacy-peer-deps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **ADD Environment Variable**
+   Create a .env file in the root directory and add the following line:
+   REACT_APP_API=http://localhost:8080
+   
+4.  **Start the Application**
+    Run the project using: npm start
 
-### `npm run build`
+5.  **Access the Application**
+    Open your browser and navigate to http://localhost:3000.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Workflow of Project Dr.Appointment .................................................................................................................................
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The project workflow involves three types of users: **Admin**, **Doctor**, and **User**. Below is the detailed flow:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 1. **Login Page**
+   - The application starts with a login page.
+   - There are three types of users: **Admin**, **Doctor**, and **User**.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. **Admin Workflow**
+   - Admin Credentials:  
+     - **Email**: vijendra.maurya@ikonworkk.com  
+     - **Password**: Ayush@123  
+   - After logging in, the Admin can:  
+     - Access the **Doctor Requests Page**: View and either **accept** or **reject** doctor registration requests.  
+     - Access the **Users Page**: Manage user details.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. **User Workflow**
+   - A new user can register with a valid email and password.
+   - After logging in, the user has two options:  
+     1. **Use the account as a User only**:  
+        - Search for doctors based on their specialties or availability.  
+        - Book an appointment with a doctor of choice.  
+        - Check the availability of a doctor.  
+        - Wait for the doctor to approve the appointment request.  
+        - Receive a **notification** when the doctor approves or rejects the request.  
+     2. **Apply as a Doctor**:  
+        - Fill out the **Doctor Registration Form**.  
+        - The registration request is sent to the Admin for approval.  
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. **Doctor Workflow**
+   - Once a user's doctor request is **approved by the Admin**, the user becomes a Doctor.  
+   - The Doctor has access to a **Doctor Dashboard** with the following features:  
+     - **Appointments Page**: View a list of all appointment requests.  
+     - Approve or reject appointment requests from users.  
+   - When the Doctor approves a user's appointment request, the user receives a **notification**.  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### Summary of Notifications:
+   - **User**: Notified when their appointment request is approved or rejected by the Doctor.  
+   - **Admin**: Notified when a new doctor registration request is submitted.  
+   - **Doctor**: Notified when a new appointment request is made by a User.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### Example Flow:
+1. A new user registers and logs in.  
+2. The user chooses to either:  
+   - Use the account as a **User only**.  
+   - Apply as a **Doctor** by submitting a form.  
+3. The Admin reviews the doctor request and either accepts or rejects it.  
+4. If accepted, the user becomes a Doctor and gains access to the Doctor Dashboard.  
+5. The User books an appointment with a Doctor.  
+6. The Doctor approves or rejects the appointment request.  
+7. The User receives a notification about the Doctor's decision.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This workflow ensures a smooth and clear interaction between the Admin, Doctor, and User roles.
